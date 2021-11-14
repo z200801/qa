@@ -1,6 +1,7 @@
 import unittest
 import time
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 
 url_textbox = "https://demoqa.com/text-box"
 value_url_textbox = "Text Box"
@@ -53,7 +54,7 @@ class demoqa_TextBox(unittest.TestCase):
             self.driver.find_element_by_xpath(xpath_email).send_keys(value_email)
             self.driver.find_element_by_xpath(xpath_current_address).send_keys(value_current_address)
             self.driver.find_element_by_xpath(xpath_permanent_address).send_keys(value_permanent_address)
-            self.driver.find_element_by_xpath(xpath_submit).send_keys("\n")
+            self.driver.find_element_by_xpath(xpath_submit).send_keys(Keys.RETURN)
             #time.sleep(2)
             #Check response frame
             get_response_frame = self.driver.find_element_by_xpath(xpath_response_frame)
