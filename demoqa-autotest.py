@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-userName2post = "UserTest21"
+userName2post = "UserTest1"
 password2post = "Password_test"
 
 def demoqa_user():
