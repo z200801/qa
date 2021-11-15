@@ -86,7 +86,6 @@ class demoqa_TextBox(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome()
-        # self.driver.implicitly_wait(30)
         self.driver.maximize_window()
 
 #Main function
@@ -96,6 +95,7 @@ class demoqa_TextBox(unittest.TestCase):
         if value_url_textbox in get_can_create_page:
             print("Search register XPath:" + get_can_create_page)
             #Testing value from array
+            #On this can use loop for changing data for testing some value
             self.tst_values(array_values_to_send)
         else:
             print("This is not register page")
