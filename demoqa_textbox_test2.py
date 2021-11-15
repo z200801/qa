@@ -10,6 +10,7 @@ xpath_response_frame="//div[@class='border col-md-12 col-sm-12']"
 
 #xpath_submit = "//button[@id='submit']"
 xpath_submit = "//*[@id='submit']"
+
 #Values to send
 value_fullname = "Andrew"
 value_email = "a1@q1.com"
@@ -22,11 +23,16 @@ xpath_email = "//input[@id='userEmail']"
 xpath_current_address = "//textarea[@id='currentAddress']"
 xpath_permanent_address = "//textarea[@id='permanentAddress']"
 
+#Array response name
+array_response_name = ['name','email','currentAddress', 'permanentAddress']
+
+ar1 = array_response_name
 #Response XPath
-xpath_response_fullname = "//p[@id='name']"
-xpath_response_email = "//p[@id='email']"
-xpath_response_current_address = "//p[@id='currentAddress']"
-xpath_response_permanent_address = "//p[@id='permanentAddress']"
+xpath_response_fullname = "//p[@id='"+ar1[0]+"']"
+xpath_response_email = "//p[@id='"+ar1[1]+"']"
+xpath_response_current_address = "//p[@id='"+ar1[2]+"']"
+xpath_response_permanent_address = "//p[@id='"+ar1[3]+"']"
+
 
 #Array contains [fullname, email, current_address, permanent_address]
 array_values_to_send = [value_fullname, value_email, value_current_address, value_permanent_address]
@@ -36,9 +42,6 @@ array_xpath_to_send = [xpath_fullname, xpath_email, xpath_current_address,xpath_
 
 #Array contains XPath to response from frame xpath_response_frame
 array_xpath_to_response_frame = [xpath_response_fullname, xpath_response_email, xpath_response_current_address, xpath_response_permanent_address]
-
-#Array response name
-array_response_name = ['name','email','currentAddress', 'permanentAddress']
 
 class demoqa_TextBox(unittest.TestCase):
 
@@ -50,7 +53,6 @@ class demoqa_TextBox(unittest.TestCase):
             r1 = "name_search: " + name_search + "; value_search: " + value_search + "; response_to_return:" + response_to_return
             print(r1)
             return False
-
 
     def setUp(self):
         self.driver = webdriver.Chrome()
