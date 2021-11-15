@@ -59,7 +59,7 @@ class DemoQATextBoxTest(unittest.TestCase):
     def tst_values(self, array_to_test):
         ar_values = array_to_test
         ar_xpath = array_xpath_to_send
-        for i in range(len(ar_values)):
+        for i in range(ar_values.__len__()):
             # print("Values at #:", i, " values:", ar_values[i])
             # print("XPath at #:", i, " values:", ar_xpath[i])
             self.driver.find_element_by_xpath(ar_xpath[i]).send_keys(ar_values[i])
