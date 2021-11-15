@@ -44,12 +44,12 @@ array_xpath_to_send = [xpath_fullname, xpath_email, xpath_current_address, xpath
 array_xpath_to_response_frame = [xpath_response_fullname, xpath_response_email, xpath_response_current_address,
                                  xpath_response_permanent_address]
 
-class demoqa_TextBox(unittest.TestCase):
 
+class DemoQATextBox(unittest.TestCase):
     def validate_response(self, name_search, value_search, response_xpath):
         response_to_return = self.driver.find_element_by_xpath(response_xpath).text
         if value_search in response_to_return:
-         return True
+            return True
         else:
             r1 = "name_search: " + name_search + "; value_search: " + value_search + \
                  "; response_to_return:" + response_to_return
