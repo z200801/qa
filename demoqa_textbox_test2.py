@@ -6,42 +6,43 @@ from selenium.webdriver.common.keys import Keys
 url_textbox = "https://demoqa.com/text-box"
 value_url_textbox = "Text Box"
 xpath_url_textbox = "//div[@class='main-header']"
-xpath_response_frame="//div[@class='border col-md-12 col-sm-12']"
+xpath_response_frame = "//div[@class='border col-md-12 col-sm-12']"
 
-#xpath_submit = "//button[@id='submit']"
+# xpath_submit = "//button[@id='submit']"
 xpath_submit = "//*[@id='submit']"
 
-#Values to send
+# Values to send
 value_fullname = "Andrew"
 value_email = "a1@q1.com"
 value_current_address = "Arizona"
 value_permanent_address = "Washington"
 
-#Send value XPath
+# Send value XPath
 xpath_fullname = "//input[@id='userName']"
 xpath_email = "//input[@id='userEmail']"
 xpath_current_address = "//textarea[@id='currentAddress']"
 xpath_permanent_address = "//textarea[@id='permanentAddress']"
 
-#Array response name
-array_response_name = ['name','email','currentAddress', 'permanentAddress']
+# Array response name
+array_response_name = ['name', 'email', 'currentAddress', 'permanentAddress']
 
 ar1 = array_response_name
-#Response XPath
+# Response XPath
 xpath_response_fullname = "//p[@id='"+ar1[0]+"']"
 xpath_response_email = "//p[@id='"+ar1[1]+"']"
 xpath_response_current_address = "//p[@id='"+ar1[2]+"']"
 xpath_response_permanent_address = "//p[@id='"+ar1[3]+"']"
 
 
-#Array contains [fullname, email, current_address, permanent_address]
+# Array contains [fullname, email, current_address, permanent_address]
 array_values_to_send = [value_fullname, value_email, value_current_address, value_permanent_address]
 
-#Array contains XPath for send values_to_send
-array_xpath_to_send = [xpath_fullname, xpath_email, xpath_current_address,xpath_permanent_address]
+# Array contains XPath for send values_to_send
+array_xpath_to_send = [xpath_fullname, xpath_email, xpath_current_address, xpath_permanent_address]
 
-#Array contains XPath to response from frame xpath_response_frame
-array_xpath_to_response_frame = [xpath_response_fullname, xpath_response_email, xpath_response_current_address, xpath_response_permanent_address]
+# Array contains XPath to response from frame xpath_response_frame
+array_xpath_to_response_frame = [xpath_response_fullname, xpath_response_email, xpath_response_current_address,
+                                 xpath_response_permanent_address]
 
 class demoqa_TextBox(unittest.TestCase):
 
@@ -50,7 +51,8 @@ class demoqa_TextBox(unittest.TestCase):
         if value_search in response_to_return:
          return True
         else:
-            r1 = "name_search: " + name_search + "; value_search: " + value_search + "; response_to_return:" + response_to_return
+            r1 = "name_search: " + name_search + "; value_search: " + value_search + \
+                 "; response_to_return:" + response_to_return
             print(r1)
             return False
 
@@ -82,20 +84,20 @@ class demoqa_TextBox(unittest.TestCase):
             # sleeping 3 sec
             time.sleep(3)
         else:
-                print("Response frame not create")
+            print("Response frame not create")
 
     def setUp(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
 
-#Main function
+# Main function
     def test_textbox(self):
         self.driver.get(url_textbox)
         get_can_create_page = self.driver.find_element_by_xpath(xpath_url_textbox).text
         if value_url_textbox in get_can_create_page:
             print("Search register XPath:" + get_can_create_page)
-            #Testing value from array
-            #On this can use loop for changing data for testing some value
+            # Testing value from array
+            # On this can use loop for changing data for testing some value
             self.tst_values(array_values_to_send)
         else:
             print("This is not register page")
