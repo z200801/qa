@@ -45,7 +45,7 @@ array_xpath_to_response_frame = [xpath_response_fullname, xpath_response_email, 
                                  xpath_response_permanent_address]
 
 
-class DemoQATextBox(unittest.TestCase):
+class DemoQATextBoxTest(unittest.TestCase):
     def validate_response(self, name_search, value_search, response_xpath):
         response_to_return = self.driver.find_element_by_xpath(response_xpath).text
         if value_search in response_to_return:
