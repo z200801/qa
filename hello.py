@@ -12,6 +12,7 @@ print(chr(27) + "[2J")
 prt_info("msg", msg)
 prt_info("msg1[0]", msg1[0])
 prt_info("msg1[1]", msg1[1])
-prt_info("msg1[1]", msg1[1])
+prt_info("msg1[2]", msg1[2])
+
 
 print("msg2=",msg2)
