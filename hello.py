@@ -15,4 +15,4 @@ prt_info("msg1[1]", msg1[1])
 prt_info("msg1[2]", msg1[2])
 
 
-print("msg2=",msg2)
+print("msg2=",msg1[0])
