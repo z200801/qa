@@ -1,0 +1,204 @@
++ tt_4_dir=My Test1
++ tt_5_perm=u+rwx-s,g+rw-s,o+r-t
++ tt_5_fl1=step1
++ tt_8_text=Your first step
++ tt_10_fl1=step2
++ tt_11_w1=first
++ tt_11_w2=second
++ tt_12_w1=Your
++ tt_13_w1=Your
++ tt_13_w2=My
++ tt_16_dir=My Test2
++ echo #1 Task
+#1 Task
++ tt_1_logged_user=user
++ echo Current logged user is:[user]
+Current logged user is:[user]
++ echo
+
++ echo #2 Task
+#2 Task
++ tt_2_cur_dir=/home/user
++ echo Current directory is:[/home/user]
+Current directory is:[/home/user]
++ echo
+
++ echo #3 Task
+#3 Task
++ tt_3_user_home_dir=/home/user
++ [  != /home/user ]
++ echo User home directory is:[/home/user]
+User home directory is:[/home/user]
++ echo Current directory is not user home directory
+Current directory is not user home directory
++ echo Change directory to:[/home/user]
+Change directory to:[/home/user]
++ echo
+
++ cd /home/user
++ echo #4 Task
+#4 Task
++ echo Make directory:[/home/user/My Test1]
+Make directory:[/home/user/My Test1]
++ echo
+
++ mkdir /home/user/My Test1
++ echo #5 Task
+#5 Task
++ echo Change permission [u+rwx-s,g+rw-s,o+r-t] on directory:[/home/user/My Test1]
+Change permission [u+rwx-s,g+rw-s,o+r-t] on directory:[/home/user/My Test1]
++ echo
+
++ chmod u+rwx-s,g+rw-s,o+r-t /home/user/My Test1
++ echo #6 Task
+#6 Task
++ echo Change directory to [My Test1] and create file [step1]
+Change directory to [My Test1] and create file [step1]
++ echo
+
++ cd My Test1
++ touch step1
++ echo #7 Task
+#7 Task
++ ls
++ tt_7_files=step1
++ echo step1
++ wc -w
++ tt_7_files_n=1
++ echo Files in directory is:[1], and name is: [step1]
+Files in directory is:[1], and name is: [step1]
++ echo Number of files in directory is:[1]
+Number of files in directory is:[1]
++ echo Listing directory [/home/user/My Test1]
+Listing directory [/home/user/My Test1]
++ ls -Al /home/user/My Test1
+итого 0
+-rw-rw-r-- 1 user user 0 січ 18 00:25 step1
++ echo
+
++ [ 1 -eq 1 ]
++ echo Files in directory is [1], and name is: [step1]
+Files in directory is [1], and name is: [step1]
++ stat -L -c %a /home/user/My Test1
++ tt_7_dir_perm=775
++ stat -L -c %a /home/user/My Test1/step1
++ tt_7_file_perm=664
++ echo Dir permissions [775] [/home/user/My Test1]
+Dir permissions [775] [/home/user/My Test1]
++ echo /home/user/My Test1/step1
++ sed s/\.\///
++ tt_7_f_name=/home/user/My Test1/step1
++ echo File permissions [664] [/home/user/My Test1/step1]
+File permissions [664] [/home/user/My Test1/step1]
++ [ 775 -eq 664 ]
++ echo Directory and files are not equivalent permissions
+Directory and files are not equivalent permissions
++ echo
+
++ echo #8 Task
+#8 Task
++ echo Editing file:[/home/user/My Test1/step1]
+Editing file:[/home/user/My Test1/step1]
++ echo Copy text:[Your first step] in to file
+Copy text:[Your first step] in to file
++ echo
+
++ echo Your first step
++ echo #9 Task
+#9 Task
++ echo File contains:
+File contains:
++ cat /home/user/My Test1/step1
+Your first step
++ echo
+
++ echo #10 Task
+#10 Task
++ echo Copy file [step1] to [step2]
+Copy file [step1] to [step2]
++ echo
+
++ cp step1 step2
++ echo #11 Task
+#11 Task
++ echo Replace in file:[step2] word:[first] to [second]
+Replace in file:[step2] word:[first] to [second]
++ sed s/first/second/g -i step2
++ echo Check visual:
+Check visual:
++ cat step2
+Your second step
++ echo
+
++ echo #12 Task
+#12 Task
++ echo Search all files contain word:[Your] on a current directory:[/home/user/My Test1]
+Search all files contain word:[Your] on a current directory:[/home/user/My Test1]
++ grep -Rl Your /home/user/My Test1
+/home/user/My Test1/step2
+/home/user/My Test1/step1
++ echo
+
++ echo #13 Task
+#13 Task
++ echo Change word:[Your] to [My] on a all files inside current directory
+Change word:[Your] to [My] on a all files inside current directory
++ echo
+
++ find /home/user/My Test1 -name * -type f ! -path . -exec sed s/Your/My/g -i {} ;
++ echo #14 Task
+#14 Task
++ grep -Rl Your /home/user/My Test1
++ tt_14_f1_w1_f=
++ echo
++ wc -w
++ tt_14_f1_w1_c=0
++ [ 0 -ne 0 ]
++ echo Files contains word:[Your] inside directory is:[0]
+Files contains word:[Your] inside directory is:[0]
++ echo
+
++ echo #15 Task
+#15 Task
++ echo Change directory to user home directory:[/home/user]
+Change directory to user home directory:[/home/user]
++ echo
+
++ cd /home/user
++ echo #16 Task
+#16 Task
++ echo Copy recursive directory:[My Test1] to [My Test2]
+Copy recursive directory:[My Test1] to [My Test2]
++ echo
+
++ cp -R My Test1 My Test2
++ echo #17 Task
+#17 Task
++ echo Lists directory /home/user
+Lists directory /home/user
++ echo The contents of the directory are the property of others.
+The contents of the directory are the property of others.
++ echo
+
++ echo List directory My Test1
+List directory My Test1
++ ls -lA /home/user/My Test1
+итого 8
+-rw-rw-r-- 1 user user 14 січ 18 00:25 step1
+-rw-rw-r-- 1 user user 15 січ 18 00:25 step2
++ echo
+
++ echo List directory My Test2
+List directory My Test2
++ ls -lA /home/user/My Test2
+итого 8
+-rw-rw-r-- 1 user user 14 січ 18 00:25 step1
+-rw-rw-r-- 1 user user 15 січ 18 00:25 step2
++ echo
+
++ echo Remove directory: [/home/user/My Test1]
+Remove directory: [/home/user/My Test1]
++ rm -rf /home/user/My Test1
++ echo Remove directory: [/home/user/My Test2]
+Remove directory: [/home/user/My Test2]
++ rm -rf /home/user/My Test2
