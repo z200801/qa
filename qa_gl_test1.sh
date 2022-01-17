@@ -74,7 +74,6 @@ fi
 # Create a directory there with the name of "My Test1".
 echo "#4 Task"
 echo "Make directory:[$tt_3_user_home_dir/$tt_4_dir]";echo
-rm -rf "$tt_3_user_home_dir/$tt_4_dir" 
 mkdir "$tt_3_user_home_dir/$tt_4_dir"
 
 ########################################################################
