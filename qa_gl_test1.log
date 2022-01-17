@@ -1,0 +1,81 @@
+#1 Task
+Current logged user is:[user]
+
+#2 Task
+Current directory is:[/home/user]
+
+#3 Task
+User home directory is:[/home/user]
+Current directory is not user home directory
+Change directory to:[/home/user]
+
+#4 Task
+Make directory:[/home/user/My Test1]
+
+#5 Task
+Change permission [u+rwx-s,g+rw-s,o+r-t] on directory:[/home/user/My Test1]
+
+#6 Task
+Change directory to [My Test1] and create file [step1]
+
+#7 Task
+Files in directory is:[1], and name is: [step1]
+Number of files in directory is:[1]
+Listing directory [/home/user/My Test1]
+итого 0
+-rw-rw-r-- 1 user user 0 січ 18 00:12 step1
+
+Files in directory is [1], and name is: [step1]
+Dir permissions [775] [/home/user/My Test1]
+File permissions [664] [/home/user/My Test1/step1]
+Directory and files are not equivalent permissions
+
+#8 Task
+Editing file:[/home/user/My Test1/step1]
+Copy text:[Your first step] in to file
+
+#9 Task
+File contains:
+Your first step
+
+#10 Task
+Copy file [step1] to [step2]
+
+#11 Task
+Replace in file:[step2] word:[first] to [second]
+Check visual:
+Your second step
+
+#12 Task
+Search all files contain word:[Your] on a current directory:[/home/user/My Test1]
+/home/user/My Test1/step2
+/home/user/My Test1/step1
+
+#13 Task
+Change word:[Your] to [My] on a all files inside current directory
+
+#14 Task
+Files contains word:[Your] inside directory is:[0]
+
+#15 Task
+Change directory to user home directory:[/home/user]
+
+#16 Task
+Copy recursive directory:[My Test1] to [My Test2]
+
+#17 Task
+Lists directory /home/user
+The contents of the directory are the property of others.
+
+List directory My Test1
+итого 8
+-rw-rw-r-- 1 user user 14 січ 18 00:12 step1
+-rw-rw-r-- 1 user user 15 січ 18 00:12 step2
+
+List directory My Test2
+итого 8
+-rw-rw-r-- 1 user user 14 січ 18 00:12 step1
+-rw-rw-r-- 1 user user 15 січ 18 00:12 step2
+
+Remove directory: [/home/user/My Test1]
+Remove directory: [/home/user/My Test2]
