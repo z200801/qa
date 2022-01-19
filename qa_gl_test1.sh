@@ -61,7 +61,9 @@ echo "#3 Task"
 # tt_3_user_home_dir=`cat /etc/passwd|grep "$tt_1_logged_user:"|awk -F : '{print $6}'`
 # tt_3_user_home_dir=`getent passwd "$tt_1_logged_user" | cut -d: -f6`
 tt_3_user_home_dir=$HOME
-if [ "$cur_dir" != "$tt_3_user_home_dir" ]; then
+echo "Current directory is:[$tt_2_cur_dir]";echo
+echo "User home directory is:[$tt_3_user_home_dir]";echo
+if [ "$tt_2_cur_dir" != "$tt_3_user_home_dir" ]; then
     echo "User home directory is:[$tt_3_user_home_dir]"
     echo "Current directory is not user home directory"; 
     echo "Change directory to:[$tt_3_user_home_dir]";echo
